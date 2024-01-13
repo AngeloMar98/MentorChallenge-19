@@ -24,7 +24,7 @@ const logosMap = new Map([
 
 export function JobCard({ card, onAddTag }) {
   return (
-    <article
+    <li
       className={`rounded-md z-10 bg-white px-4 pb-4 laptop:py-4 text-[15px] border-l-[6px] ${
         card.new && card.featured ? "border-darkCyan" : "border-white"
       } card-shadow w-full max-w-[800px] mx-auto laptop:flex laptop:flex-row laptop:justify-between laptop:items-center laptop:px-4`}
@@ -62,23 +62,23 @@ export function JobCard({ card, onAddTag }) {
       </div>
       <hr className="my-4 laptop:hidden" />
       <div className="flex flex-row flex-wrap gap-3 font-semibold h-fit">
-        <span onClick={() => onAddTag(card.role)} className="tag">
+        <button onClick={() => onAddTag(card.role)} className="tag">
           {card.role}
-        </span>
-        <span onClick={() => onAddTag(card.level)} className="tag">
+        </button>
+        <button onClick={() => onAddTag(card.level)} className="tag">
           {card.level}
-        </span>
+        </button>
         {card.tools.map((tool) => (
-          <span onClick={() => onAddTag(tool)} className="tag" key={tool}>
+          <button onClick={() => onAddTag(tool)} className="tag" key={tool}>
             {tool}
-          </span>
+          </button>
         ))}
         {card.languages.map((lang) => (
-          <span onClick={() => onAddTag(lang)} className="tag" key={lang}>
+          <button onClick={() => onAddTag(lang)} className="tag" key={lang}>
             {lang}
-          </span>
+          </button>
         ))}
       </div>
-    </article>
+    </li>
   );
 }
